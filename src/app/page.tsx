@@ -95,8 +95,8 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white border-b border-gray-100 px-4 py-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-2xl font-bold text-gray-900">חיפוש דירות להשכרה</h1>
-          <p className="text-sm text-gray-500 mt-0.5">נתונים חיים מיד2</p>
+          <h1 className="text-2xl font-bold text-gray-900">יד3</h1>
+          <p className="text-sm text-gray-500 mt-0.5">חיפוש דירות להשכרה — נתונים חיים מיד2</p>
         </div>
       </header>
 

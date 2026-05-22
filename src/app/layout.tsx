@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "חיפוש דירות להשכרה",
-  description: "חיפוש דירות להשכרה בישראל מיד2",
+  title: "יד3 — חיפוש דירות להשכרה",
+  description: "חפש דירות להשכרה בכל הארץ בזמן אמת. נתונים חיים מיד2.",
 };
 
 export default function RootLayout({
