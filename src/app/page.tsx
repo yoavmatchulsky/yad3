@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import FilterForm from "@/components/FilterForm";
 import ListingCard from "@/components/ListingCard";
 import LoadingState from "@/components/LoadingState";
+import Logo from "@/components/Logo";
 import { FilterParams, Listing } from "@/lib/types";
 
 const PAGE_SIZE = 20;
@@ -103,10 +104,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50" dir="rtl">
-      <header className="bg-white border-b border-gray-100 px-4 py-4">
+      <header className="bg-white border-b border-gray-100 px-4 py-3">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-2xl font-bold text-gray-900">יד3</h1>
-          <p className="text-sm text-gray-500 mt-0.5">חיפוש דירות להשכרה — נתונים חיים מיד2</p>
+          <Logo />
         </div>
       </header>
 
