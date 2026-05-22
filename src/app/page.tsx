@@ -103,14 +103,14 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
+    <div className="min-h-screen bg-gray-50 flex flex-col" dir="rtl">
       <header className="bg-white border-b border-gray-100 px-4 py-3">
         <div className="max-w-6xl mx-auto">
           <Logo />
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-6">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start">
           <div className="lg:sticky lg:top-6">
             <FilterForm onSearch={handleSearch} isLoading={isLoading} />
@@ -210,8 +210,14 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="mt-12 border-t border-gray-200 bg-white px-4 py-6 text-center text-xs text-gray-400">
-        פרויקט זה הוא ניסיוני בלבד ואינו מיועד לשימוש ציבורי. הנתונים נשלפים מיד2 ואינם שייכים לפרויקט זה.
+      <footer className="mt-12 border-t border-gray-200 bg-white px-4 py-6 text-center text-xs text-gray-400 space-y-1">
+        <p>פרויקט זה הוא ניסיוני בלבד ואינו מיועד לשימוש ציבורי. הנתונים נשלפים מיד2 ואינם שייכים לפרויקט זה.</p>
+        <p>
+          נבנה על ידי{" "}
+          <a href="https://yoavi.codes" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+            yoavi.codes
+          </a>
+        </p>
       </footer>
     </div>
   );
