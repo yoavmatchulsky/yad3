@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { FilterParams } from "@/lib/types";
 import { CITIES } from "@/lib/cities";
+import { FilterParams } from "@/lib/types";
 
 interface FilterFormProps {
   onSearch: (filters: FilterParams) => void;
@@ -19,13 +19,14 @@ export default function FilterForm({ onSearch, isLoading }: FilterFormProps) {
   const [maxArea, setMaxArea] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const citySuggestions = city.trim().length > 0
-    ? CITIES.filter(
-        (c) =>
-          c.name.toLowerCase().includes(city.toLowerCase()) ||
-          c.nameHe.includes(city)
-      ).slice(0, 6)
-    : [];
+  const citySuggestions =
+    city.trim().length > 0
+      ? CITIES.filter(
+          (c) =>
+            c.name.toLowerCase().includes(city.toLowerCase()) ||
+            c.nameHe.includes(city),
+        ).slice(0, 6)
+      : [];
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -42,16 +43,26 @@ export default function FilterForm({ onSearch, isLoading }: FilterFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 md:p-6">
-      <h2 className="text-lg font-semibold text-gray-800 mb-4">סינון דירות להשכרה</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 md:p-6"
+    >
+      <h2 className="text-lg font-semibold text-gray-800 mb-4">
+        סינון דירות להשכרה
+      </h2>
 
       {/* City */}
       <div className="relative mb-4">
-        <label className="block text-sm font-medium text-gray-600 mb-1">עיר *</label>
+        <label className="block text-sm font-medium text-gray-600 mb-1">
+          עיר *
+        </label>
         <input
           type="text"
           value={city}
-          onChange={(e) => { setCity(e.target.value); setShowSuggestions(true); }}
+          onChange={(e) => {
+            setCity(e.target.value);
+            setShowSuggestions(true);
+          }}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
           onFocus={() => city && setShowSuggestions(true)}
           placeholder="חפש עיר..."
@@ -64,7 +75,10 @@ export default function FilterForm({ onSearch, isLoading }: FilterFormProps) {
             {citySuggestions.map((c) => (
               <li
                 key={c.code}
-                onMouseDown={() => { setCity(c.nameHe); setShowSuggestions(false); }}
+                onMouseDown={() => {
+                  setCity(c.nameHe);
+                  setShowSuggestions(false);
+                }}
                 className="px-3 py-2 text-sm cursor-pointer hover:bg-blue-50 flex justify-between"
               >
                 <span>{c.nameHe}</span>
@@ -78,7 +92,9 @@ export default function FilterForm({ onSearch, isLoading }: FilterFormProps) {
       {/* Price range */}
       <div className="grid grid-cols-2 gap-3 mb-4">
         <div>
-          <label className="block text-sm font-medium text-gray-600 mb-1">מחיר מינימום (₪)</label>
+          <label className="block text-sm font-medium text-gray-600 mb-1">
+            מחיר מינימום (₪)
+          </label>
           <input
             type="number"
             value={minPrice}
@@ -89,7 +105,9 @@ export default function FilterForm({ onSearch, isLoading }: FilterFormProps) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-600 mb-1">מחיר מקסימום (₪)</label>
+          <label className="block text-sm font-medium text-gray-600 mb-1">
+            מחיר מקסימום (₪)
+          </label>
           <input
             type="number"
             value={maxPrice}
@@ -104,7 +122,9 @@ export default function FilterForm({ onSearch, isLoading }: FilterFormProps) {
       {/* Rooms range */}
       <div className="grid grid-cols-2 gap-3 mb-4">
         <div>
-          <label className="block text-sm font-medium text-gray-600 mb-1">חדרים מינימום</label>
+          <label className="block text-sm font-medium text-gray-600 mb-1">
+            חדרים מינימום
+          </label>
           <input
             type="number"
             value={minRooms}
@@ -116,7 +136,9 @@ export default function FilterForm({ onSearch, isLoading }: FilterFormProps) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-600 mb-1">חדרים מקסימום</label>
+          <label className="block text-sm font-medium text-gray-600 mb-1">
+            חדרים מקסימום
+          </label>
           <input
             type="number"
             value={maxRooms}
@@ -132,7 +154,9 @@ export default function FilterForm({ onSearch, isLoading }: FilterFormProps) {
       {/* Area range */}
       <div className="grid grid-cols-2 gap-3 mb-5">
         <div>
-          <label className="block text-sm font-medium text-gray-600 mb-1">שטח מינימום (מ"ר)</label>
+          <label className="block text-sm font-medium text-gray-600 mb-1">
+            שטח מינימום (מ"ר)
+          </label>
           <input
             type="number"
             value={minArea}
@@ -143,7 +167,9 @@ export default function FilterForm({ onSearch, isLoading }: FilterFormProps) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-600 mb-1">שטח מקסימום (מ"ר)</label>
+          <label className="block text-sm font-medium text-gray-600 mb-1">
+            שטח מקסימום (מ"ר)
+          </label>
           <input
             type="number"
             value={maxArea}

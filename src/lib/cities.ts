@@ -1,7 +1,7 @@
 export interface City {
+  code: number;
   name: string;
   nameHe: string;
-  code: number;
 }
 
 export const CITIES: City[] = [
