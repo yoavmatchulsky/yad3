@@ -1,5 +1,5 @@
-import { FilterParams, Listing } from "../types";
 import { findCityCode } from "../cities";
+import { FilterParams, Listing } from "../types";
 
 function buildYad2Url(filters: FilterParams): string {
   const params = new URLSearchParams();
@@ -17,7 +17,8 @@ function buildYad2Url(filters: FilterParams): string {
   if (filters.maxRooms) params.set("maxRooms", String(filters.maxRooms));
   if (filters.minArea) params.set("minArea", String(filters.minArea));
   if (filters.maxArea) params.set("maxArea", String(filters.maxArea));
-  if (filters.page && filters.page > 1) params.set("page", String(filters.page));
+  if (filters.page && filters.page > 1)
+    params.set("page", String(filters.page));
 
   return `https://www.yad2.co.il/realestate/rent?${params.toString()}`;
 }
@@ -60,7 +61,7 @@ interface NextData {
 
 function extractListings(html: string, cityName: string): Listing[] {
   const match = html.match(
-    /<script id="__NEXT_DATA__" type="application\/json">([^<]+)<\/script>/
+    /<script id="__NEXT_DATA__" type="application\/json">([^<]+)<\/script>/,
   );
   if (!match) return [];
 
@@ -73,7 +74,7 @@ function extractListings(html: string, cityName: string): Listing[] {
 
   const queries = data?.props?.pageProps?.dehydratedState?.queries || [];
   const feedQuery = queries.find(
-    (q) => q.queryKey?.[0] === "realestate-rent-feed"
+    (q) => q.queryKey?.[0] === "realestate-rent-feed",
   );
 
   if (!feedQuery) return [];

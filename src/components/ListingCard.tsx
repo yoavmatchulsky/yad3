@@ -1,6 +1,6 @@
 import { Listing } from "@/lib/types";
-import { ListingImage } from "./ListingImage";
 import { ListingContent } from "./ListingContent";
+import { ListingImage } from "./ListingImage";
 
 interface ListingCardProps {
   listing: Listing;
