@@ -1,7 +1,7 @@
 export interface City {
+  code: number;
   name: string;
   nameHe: string;
-  code: number;
 }
 
 export const CITIES: City[] = [
@@ -38,7 +38,7 @@ export function findCityCode(input: string): number | null {
       c.name.toLowerCase() === normalized ||
       c.nameHe === input.trim() ||
       c.name.toLowerCase().startsWith(normalized) ||
-      c.nameHe.startsWith(input.trim())
+      c.nameHe.startsWith(input.trim()),
   );
   return city?.code ?? null;
 }
